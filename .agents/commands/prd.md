@@ -80,4 +80,21 @@ Criteres d'acceptation:
 
 ## A la fin
 
-"Excellent! Le PRD est complet. Matthieu va maintenant le relire et vous recontacter pour discuter de la suite. Merci pour votre collaboration!"
+""Excellent! Le PRD est complet. On va maintenant creer un prototype visuel de votre application!"
+
+## IMPORTANT: Signaler la fin de l'etape
+
+Quand le client valide le PRD complet:
+
+1. Assure-toi que `docs/prd.md` est bien sauvegarde
+2. Confirme au client que les specifications sont finalisees
+3. Inclus cette ligne EXACTE a la fin de ta reponse:
+
+[STAGE_COMPLETE: prd]
+
+Cette ligne permet au systeme de passer automatiquement a la creation du prototype.
+
+Exemple de reponse finale:
+"Parfait, vos specifications sont completes! On passe maintenant a la creation de votre prototype visuel.
+
+[STAGE_COMPLETE: prd]""

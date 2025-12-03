@@ -1,0 +1,50 @@
+# BMAD Client Workflow Configuration
+# Ce fichier definit les etapes et transitions du workflow client
+
+name: "BMAD Client Workflow"
+
+modes:
+  quick:
+    stages: [discovery, mockup]
+  detailed:
+    stages: [discovery, brief, prd, mockup]
+
+stages:
+  discovery:
+    agent: ".agents/commands/discovery.md"
+    outputs:
+      - path: "docs/discovery.md"
+        required_sections: ["Resume du projet", "Nom du projet", "Fonctionnalites"]
+        min_lines: 10
+    next:
+      quick: mockup
+      detailed: brief
+    requires_approval: false
+
+  brief:
+    agent: ".agents/commands/brief.md"
+    outputs:
+      - path: "docs/brief.md"
+        required_sections: ["Resume executif", "Fonctionnalites MVP", "Utilisateurs cibles"]
+        min_lines: 30
+    next: prd
+    requires_approval: true
+
+  prd:
+    agent: ".agents/commands/prd.md"
+    outputs:
+      - path: "docs/prd.md"
+        required_sections: ["Exigences fonctionnelles", "Interface utilisateur", "Epics"]
+        min_lines: 50
+    next: mockup
+    requires_approval: true
+
+  mockup:
+    agent: ".agents/commands/mockup.md"
+    outputs:
+      - path: "mockup/package.json"
+      - path: "mockup/app/page.tsx"
+    next: preview
+    requires_approval: false
+    start_tunnel: true
+    tunnel_port: 3003

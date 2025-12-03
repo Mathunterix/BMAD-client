@@ -70,4 +70,21 @@ Pour chaque type d'utilisateur:
 
 Une fois le brief valide, informe le client:
 
-"Parfait! Votre Project Brief est complet. La prochaine etape sera de transformer ce brief en specifications detaillees (PRD). Souhaitez-vous continuer maintenant?"
+""Parfait! Votre Project Brief est complet. La prochaine etape sera de transformer ce brief en specifications detaillees (PRD)."
+
+## IMPORTANT: Signaler la fin de l'etape
+
+Quand le client valide le brief complet:
+
+1. Assure-toi que `docs/brief.md` est bien sauvegarde
+2. Confirme au client que le brief est finalise
+3. Inclus cette ligne EXACTE a la fin de ta reponse:
+
+[STAGE_COMPLETE: brief]
+
+Cette ligne permet au systeme de passer automatiquement a l'etape suivante (PRD).
+
+Exemple de reponse finale:
+"Excellent, votre Project Brief est maintenant complet et sauvegarde! On passe aux specifications detaillees.
+
+[STAGE_COMPLETE: brief]""
