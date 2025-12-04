@@ -21,13 +21,14 @@ Le contexte du projet (discovery, brief, prd) est **deja injecte dans ce prompt*
 4. Utilise Tailwind CSS pour le style
 5. Genere des mock data realistes
 6. L'application doit etre 100% fonctionnelle avec les donnees mock
-7. Lance le serveur de dev sur le port 3003 UNIQUEMENT
-8. **NE lance PAS cloudflared** - le systeme le fait automatiquement
+7. **NE lance PAS npm install** - le systeme s'en charge automatiquement apres [STAGE_COMPLETE]
+8. **NE lance PAS npm run dev** - le systeme s'en charge automatiquement apres [STAGE_COMPLETE]
+9. **NE lance PAS cloudflared** - le systeme le fait automatiquement
 
 ## Tu DOIS utiliser les outils
 
 - Utilise Write pour creer les fichiers
-- Utilise Bash pour executer npm install et npm run dev
+- **N'utilise PAS Bash** pour npm install ou npm run dev - le systeme s'en charge
 - **N'utilise PAS Read** pour chercher des fichiers de contexte - tout est fourni dans ce prompt
 
 ## Structure du projet
@@ -57,14 +58,14 @@ mockup/
 3. Cree la structure du projet Next.js dans le dossier `mockup/`
 4. Genere les mock data realistes
 5. Cree les composants necessaires
-6. Execute `npm install` dans le dossier mockup/
-7. Lance `npm run dev -- -p 3003` pour demarrer sur le port 3003
-8. **NE lance PAS cloudflared** - le systeme s'en charge automatiquement apres [STAGE_COMPLETE: mockup]
+6. **NE lance PAS npm install** - le systeme s'en charge apres [STAGE_COMPLETE: mockup]
+7. **NE lance PAS npm run dev** - le systeme s'en charge apres [STAGE_COMPLETE: mockup]
+8. **NE lance PAS cloudflared** - le systeme s'en charge automatiquement
 
 ## A la fin
 
-Une fois le serveur lance sur le port 3003, dis au client:
-"Votre prototype est pret! Vous pouvez le voir dans la fenetre de preview a droite."
+Une fois TOUS les fichiers crees, dis au client:
+"Votre prototype est en cours de preparation! Il sera visible dans quelques instants dans la fenetre de preview a droite."
 
 ## Communication avec le client
 
@@ -76,11 +77,11 @@ Une fois le serveur lance sur le port 3003, dis au client:
 
 ## IMPORTANT: Signaler la fin de l'etape
 
-Une fois que tu as cree TOUS les fichiers du mockup ET lance le serveur:
+Une fois que tu as cree TOUS les fichiers du mockup (package.json, composants, etc.):
 
 1. Assure-toi que `mockup/package.json` et `mockup/app/page.tsx` existent
-2. Assure-toi que le serveur tourne sur le port 3003
-3. Annonce au client que le prototype est pret
+2. **NE lance PAS le serveur** - le systeme s'en charge automatiquement
+3. Annonce au client que le prototype va etre prepare
 4. Inclus cette ligne EXACTE a la fin de ta reponse:
 
 [STAGE_COMPLETE: mockup]
@@ -88,6 +89,6 @@ Une fois que tu as cree TOUS les fichiers du mockup ET lance le serveur:
 Cette ligne permet au systeme de demarrer automatiquement le tunnel et afficher le preview.
 
 Exemple de reponse finale:
-"Votre prototype est pret! Vous pouvez le voir dans la fenetre de preview a droite.
+"Votre prototype est en cours de preparation! Il sera visible dans quelques instants.
 
 [STAGE_COMPLETE: mockup]"
